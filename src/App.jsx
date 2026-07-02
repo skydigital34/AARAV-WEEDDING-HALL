@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { 
-  Calendar, ArrowRight, Gift, 
+  Calendar, ArrowRight, ArrowLeft, Gift, 
   PhoneCall, MessageCircle, 
   Armchair, ConciergeBell, Flower2, CalendarDays, HeartHandshake,
   PawPrint, Wind, CookingPot, CircleParking, Zap,
@@ -291,6 +291,7 @@ function App() {
   const [facilityPopup, setFacilityPopup] = useState(null);
   const [eventPopup, setEventPopup] = useState(null);
   const [activeSection, setActiveSection] = useState('home');
+  const [currentPage, setCurrentPage] = useState('landing');
 
   const filteredGalleryItems = galleryItems.filter(item => 
     galleryFilter === 'all' || item.category === galleryFilter
@@ -337,6 +338,8 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (currentPage !== 'landing') return;
+
     const observerOptions = {
       root: null,
       rootMargin: '0px 0px -80px 0px',
@@ -358,10 +361,11 @@ function App() {
     return () => {
       revealElements.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (currentPage !== 'landing') return;
       const sections = ['home', 'facilities', 'nature', 'occasions', 'contact'];
       const scrollPosition = window.scrollY + 220; // offset for the navbar height plus margins
 
@@ -381,12 +385,14 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className="app-container">
-      {/* Header */}
-      <header className="navbar">
+      {currentPage === 'landing' ? (
+        <>
+          {/* Header */}
+          <header className="navbar">
         <div className="logo-container">
           <div className="logo-icon">
             <span className="logo-w">A</span>
@@ -399,6 +405,7 @@ function App() {
         
         <nav className="nav-links">
           <a href="#home" className={activeSection === 'home' ? 'active' : ''}>HOME</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); setCurrentPage('about'); window.scrollTo(0, 0); }} className={currentPage === 'about' ? 'active' : ''}>ABOUT</a>
           <a href="#facilities" className={activeSection === 'facilities' ? 'active' : ''}>FACILITIES</a>
           <a href="#nature" className={activeSection === 'nature' ? 'active' : ''}>NATURE</a>
           <a href="#occasions" className={activeSection === 'occasions' ? 'active' : ''}>OCCASIONS</a>
@@ -432,6 +439,7 @@ function App() {
       <div className={`drawer ${isMenuOpen ? 'open' : ''}`} role="navigation">
         <nav className="drawer-links">
           <a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>HOME</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); setCurrentPage('about'); setIsMenuOpen(false); window.scrollTo(0, 0); }} className={currentPage === 'about' ? 'active' : ''}>ABOUT</a>
           <a href="#facilities" className={activeSection === 'facilities' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>FACILITIES</a>
           <a href="#nature" className={activeSection === 'nature' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>NATURE</a>
           <a href="#occasions" className={activeSection === 'occasions' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>OCCASIONS</a>
@@ -1013,143 +1021,6 @@ function App() {
         </div>
       </footer>
 
-      {/* Packages Inquiry Modal */}
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Inquiry Form">
-            <button className="modal-close-btn" onClick={() => setIsModalOpen(false)} aria-label="Close modal">
-              &times;
-            </button>
-            <h3 className="modal-title">Request Package Details</h3>
-            <p className="modal-subtitle">Fill in the details below to receive our packages catalog.</p>
-            
-            <form className="modal-form" onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); alert('Thank you! We will email you the packages catalog shortly.'); }}>
-              <div className="modal-form-group">
-                <input type="text" placeholder="Your Name" required className="modal-input" />
-              </div>
-              <div className="modal-form-group">
-                <input type="tel" placeholder="Your Phone" required className="modal-input" />
-              </div>
-              <div className="modal-form-group">
-                <input type="email" placeholder="Your Email" required className="modal-input" />
-              </div>
-              <div className="modal-form-group">
-                <select required className="modal-select">
-                  <option value="" disabled selected hidden>Event Type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="engagement">Engagement</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="haldi">Haldi</option>
-                  <option value="mehendi">Mehendi</option>
-                  <option value="puberty">Puberty Function (Half Saree)</option>
-                  <option value="corporate">Corporate Events</option>
-                  <option value="gettogether">Get Together</option>
-                </select>
-              </div>
-              <button type="submit" className="btn-modal-submit">
-                GET PACKAGES <ArrowRight size={16} />
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Floating Gallery Button */}
-      <button 
-        className="gallery-floating-btn" 
-        onClick={() => { setIsGalleryOpen(true); setGalleryFilter('all'); }}
-        aria-label="Open Gallery"
-      >
-        <Images size={24} />
-        <span className="tooltip-text">View Gallery</span>
-      </button>
-
-      {/* Gallery Modal */}
-      {isGalleryOpen && (
-        <div className="gallery-modal-overlay" onClick={() => setIsGalleryOpen(false)}>
-          <div className="gallery-modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Aarav Gallery">
-            <button className="gallery-modal-close" onClick={() => setIsGalleryOpen(false)} aria-label="Close gallery">
-              <X size={20} />
-            </button>
-            
-            <div className="gallery-modal-header">
-              <h3 className="gallery-title">Aarav Gallery</h3>
-              <p className="gallery-subtitle">A visual journey through our premium spaces, gardens and occasions</p>
-            </div>
-            
-            {/* Filter Tabs */}
-            <div className="gallery-filters">
-              {[
-                { id: 'all', label: 'All Photos' },
-                { id: 'hall', label: 'Wedding Hall' },
-                { id: 'decor', label: 'Decorations' },
-                { id: 'nature', label: 'Nature & Gardens' },
-                { id: 'occasions', label: 'Events & Celebrations' }
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  className={`gallery-filter-btn ${galleryFilter === tab.id ? 'active' : ''}`}
-                  onClick={() => { setGalleryFilter(tab.id); setLightboxIndex(null); }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            
-            {/* Photo Grid */}
-            <div className="gallery-grid-container">
-              {filteredGalleryItems.length > 0 ? (
-                <div className="gallery-photo-grid">
-                  {filteredGalleryItems.map((item, idx) => (
-                    <div 
-                      key={idx} 
-                      className="gallery-photo-item"
-                      onClick={() => setLightboxIndex(idx)}
-                    >
-                      <img src={item.src} alt={item.title} loading="lazy" />
-                      <div className="gallery-photo-overlay">
-                        <span className="gallery-photo-category">{item.category.toUpperCase()}</span>
-                        <span className="gallery-photo-title">{item.title}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="gallery-empty">No photos found in this category.</div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Lightbox Modal */}
-      {isGalleryOpen && lightboxIndex !== null && (
-        <div className="lightbox-overlay" onClick={() => setLightboxIndex(null)}>
-          <button className="lightbox-close" onClick={() => setLightboxIndex(null)} aria-label="Close lightbox">
-            <X size={24} />
-          </button>
-          
-          <button className="lightbox-nav btn-prev" onClick={handlePrevImage} aria-label="Previous image">
-            <ChevronLeft size={36} />
-          </button>
-          
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <img 
-              src={filteredGalleryItems[lightboxIndex].src} 
-              alt={filteredGalleryItems[lightboxIndex].title} 
-            />
-            <div className="lightbox-caption">
-              <h4>{filteredGalleryItems[lightboxIndex].title}</h4>
-              <p>{filteredGalleryItems[lightboxIndex].category.toUpperCase()}</p>
-            </div>
-          </div>
-          
-          <button className="lightbox-nav btn-next" onClick={handleNextImage} aria-label="Next image">
-            <ChevronRight size={36} />
-          </button>
-        </div>
-      )}
-
       {/* Sticky Bottom Navigation Bar for Mobile */}
       <div className="mobile-bottom-nav">
         <a 
@@ -1188,6 +1059,236 @@ function App() {
           <span>Contact</span>
         </a>
       </div>
+      </>
+      ) : (
+        <div className="about-page-view">
+          {/* About Page Header */}
+          <header className="about-page-header">
+            <div className="logo-container">
+              <div className="logo-icon">
+                <span className="logo-w">A</span>
+              </div>
+              <div className="logo-text">
+                <h2>AARAV WEDDING HALL</h2>
+                <p>CELEBRATE ELEGANCE</p>
+              </div>
+            </div>
+            <button 
+              onClick={() => { setCurrentPage('landing'); window.scrollTo(0, 0); }} 
+              className="btn-back-home"
+            >
+              <ArrowLeft size={18} /> BACK TO HOME
+            </button>
+          </header>
+
+          {/* About Page Banner */}
+          <section className="about-page-banner">
+            <div className="about-page-banner-bg" style={{ backgroundImage: `url(${heroBg4})` }}></div>
+            <div className="about-page-banner-overlay"></div>
+            <div className="about-page-banner-content">
+              <span className="subtitle-badge">WELCOME TO AARAV</span>
+              <h1>Our Story & Essence</h1>
+              <p>Coimbatore's premium nature & eco-friendly event venue</p>
+            </div>
+          </section>
+
+          {/* About Page Content */}
+          <section className="about-page-content">
+            <div className="about-page-container">
+              <div className="about-page-left">
+                <h2>Where Elegance Meets Nature</h2>
+                <div className="about-ornament"></div>
+                <blockquote className="about-page-quote">
+                  "Where nature becomes part of your celebration. Surrounded by lush greenery and sustainability at its heart, our destination wedding venue offers a timeless setting where luxury and environmental responsibility exist in perfect harmony."
+                </blockquote>
+                <p className="highlight-text">
+                  Designed with nature, not against it.
+                </p>
+                <p>
+                  Our destination wedding hall integrates green landscapes, sustainable architecture, and eco-friendly practices to provide a breathtaking venue where every celebration honors both love and the planet.
+                </p>
+                <p>
+                  Our venue stands as a symbol of conscious luxury—a place where love is celebrated, nature is honored, and unforgettable moments are created in perfect harmony with the environment. We are committed to a future where elegance and sustainability walk hand in hand.
+                </p>
+              </div>
+              <div className="about-page-right">
+                <div className="about-page-features-list">
+                  <div className="about-page-feature">
+                    <div className="feature-icon-wrapper">
+                      <Leaf size={24} />
+                    </div>
+                    <div className="feature-text-wrapper">
+                      <h3>Eco-Friendly Venue</h3>
+                      <p>Surrounded by 500+ bamboo trees providing fresh oxygen-rich air naturally.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="about-page-feature">
+                    <div className="feature-icon-wrapper">
+                      <Armchair size={24} />
+                    </div>
+                    <div className="feature-text-wrapper">
+                      <h3>Luxurious Indoor AC Hall</h3>
+                      <p>State-of-the-art centralized climate control with seating for 500+ guests.</p>
+                    </div>
+                  </div>
+
+                  <div className="about-page-feature">
+                    <div className="feature-icon-wrapper">
+                      <CircleParking size={24} />
+                    </div>
+                    <div className="feature-text-wrapper">
+                      <h3>Ample Safe Parking</h3>
+                      <p>Dedicated secured space accommodating up to 350 cars and 500+ bikes.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* About Page Nature Details */}
+          <section className="about-page-nature-details">
+            <div className="about-page-nature-container">
+              <div className="about-page-nature-image">
+                <img src={bambooGazebo} alt="Bamboo Garden" className="nature-img" />
+              </div>
+              <div className="about-page-nature-content">
+                <span className="nature-badge-small">ECO VENUE PHILOSOPHY</span>
+                <h2>A Breath of Fresh Air for Your Guests</h2>
+                <p>
+                  Our plantation ecosystem contributes approximately 1 lakh litres of fresh oxygen every day. The lush bamboo gazebos and beautifully landscaped gardens offer the perfect backdrop for photos and a cooling breeze that naturally enriches the atmosphere.
+                </p>
+                <div className="nature-stats-small">
+                  <div className="stat-box">
+                    <h4>500+</h4>
+                    <p>Bamboo Trees</p>
+                  </div>
+                  <div className="stat-box">
+                    <h4>1 Lakh Litres</h4>
+                    <p>Oxygen / Day</p>
+                  </div>
+                  <div className="stat-box">
+                    <h4>100%</h4>
+                    <p>Eco-Friendly</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Back Button Footer Action */}
+          <div className="about-page-footer-action">
+            <button 
+              onClick={() => { setCurrentPage('landing'); window.scrollTo(0, 0); }} 
+              className="btn-back-home-large"
+            >
+              <ArrowLeft size={18} /> BACK TO HOME PAGE
+            </button>
+          </div>
+
+          {/* Footer Section */}
+          <footer className="advanced-footer">
+            <div className="footer-top">
+              <div className="footer-grid">
+                {/* Brand Column */}
+                <div className="footer-col brand-col">
+                  <div className="footer-logo">
+                    <div className="logo-icon-circle">
+                      <span>A</span>
+                    </div>
+                    <div className="logo-text-wrapper">
+                      <h3>AARAV WEDDING HALL</h3>
+                      <p>CELEBRATE ELEGANCE</p>
+                    </div>
+                  </div>
+                  <p className="footer-brand-desc">
+                    Experience weddings and grand occasions in Coimbatore's premium nature-friendly venue, offering luxurious AC hall and open outdoor lounges.
+                  </p>
+                  <div className="footer-socials">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                      <FacebookIcon />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <InstagramIcon />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube">
+                      <YoutubeIcon />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Quick Links Column */}
+                <div className="footer-col">
+                  <h4>QUICK LINKS</h4>
+                  <ul>
+                    <li><a href="#home" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('home'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Home</a></li>
+                    <li><a href="#about" onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); }}>About Us</a></li>
+                    <li><a href="#facilities" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('facilities'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Facilities</a></li>
+                    <li><a href="#nature" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('nature'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Oxygen Paradise</a></li>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Occasions</a></li>
+                    <li><a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Contact</a></li>
+                  </ul>
+                </div>
+
+                {/* Occasions Column */}
+                <div className="footer-col">
+                  <h4>CELEBRATIONS</h4>
+                  <ul>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Weddings</a></li>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Engagements</a></li>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Birthday Parties</a></li>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Haldi & Mehendi</a></li>
+                    <li><a href="#occasions" onClick={(e) => { e.preventDefault(); setCurrentPage('landing'); setTimeout(() => { const el = document.getElementById('occasions'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Corporate Events</a></li>
+                  </ul>
+                </div>
+
+                {/* Contact Column */}
+                <div className="footer-col contact-col">
+                  <h4>CONTACT US</h4>
+                  <ul className="footer-contact-info">
+                    <li>
+                      <div className="contact-icon-circle">
+                        <Phone size={14} />
+                      </div>
+                      <a href="tel:+919655501679">+91 96555 01679</a>
+                    </li>
+                    <li>
+                      <div className="contact-icon-circle">
+                        <MailOpen size={14} />
+                      </div>
+                      <a href="mailto:info@aaravweddinghall.com">info@aaravweddinghall.com</a>
+                    </li>
+                    <li className="address-li">
+                      <div className="contact-icon-circle">
+                        <Navigation size={15} strokeWidth={2} />
+                      </div>
+                      <p>
+                        8/24, Pudhu Thottam, Ramasamy Nagar Extension,<br />
+                        Urumandampalayam, Gounder Mills,<br />
+                        Coimbatore - 641029
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="footer-bottom">
+              <div className="footer-bottom-container">
+                <p className="copyright">
+                  &copy; {new Date().getFullYear()} Aarav Wedding Hall. All rights reserved.
+                </p>
+                <div className="footer-bottom-links">
+                  <a href="#">Privacy Policy</a>
+                  <span className="dot-divider">&middot;</span>
+                  <a href="#">Terms & Conditions</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      )}
     </div>
   );
 }
