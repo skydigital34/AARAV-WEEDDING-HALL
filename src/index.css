@@ -58,6 +58,14 @@ html, body {
   transition: all 0.5s ease;
   position: relative;
 }
+.logo-img-el {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
 .logo-icon::after {
   content: '';
   position: absolute;

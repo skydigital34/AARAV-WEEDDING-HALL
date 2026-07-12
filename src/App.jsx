@@ -53,6 +53,7 @@ const heroImages = [
   heroImgCopy5,
 ];
 
+import logoImg from './assets/logo_circle.png';
 import bambooGazebo from './assets/bamboo_gazebo.png';
 import weddingImg from './assets/occasions/wedding.png';
 import engagementImg from './assets/occasions/engagement.png';
@@ -395,7 +396,7 @@ function App() {
           <header className="navbar">
         <div className="logo-container">
           <div className="logo-icon">
-            <span className="logo-w">A</span>
+            <img src={logoImg} alt="Aarav Wedding Hall Logo" className="logo-img-el" />
           </div>
           <div className="logo-text">
             <h2>AARAV WEDDING HALL</h2>
@@ -922,7 +923,7 @@ function App() {
             <div className="footer-col brand-col">
               <div className="footer-logo">
                 <div className="logo-icon-circle">
-                  <span>A</span>
+                  <img src={logoImg} alt="Aarav Wedding Hall Logo" className="logo-img-el" />
                 </div>
                 <div className="logo-text-wrapper">
                   <h3>AARAV WEDDING HALL</h3>
@@ -1066,7 +1067,7 @@ function App() {
           <header className="about-page-header">
             <div className="logo-container">
               <div className="logo-icon">
-                <span className="logo-w">A</span>
+                <img src={logoImg} alt="Aarav Wedding Hall Logo" className="logo-img-el" />
               </div>
               <div className="logo-text">
                 <h2>AARAV WEDDING HALL</h2>
@@ -1195,7 +1196,7 @@ function App() {
                 <div className="footer-col brand-col">
                   <div className="footer-logo">
                     <div className="logo-icon-circle">
-                      <span>A</span>
+                      <img src={logoImg} alt="Aarav Wedding Hall Logo" className="logo-img-el" />
                     </div>
                     <div className="logo-text-wrapper">
                       <h3>AARAV WEDDING HALL</h3>
