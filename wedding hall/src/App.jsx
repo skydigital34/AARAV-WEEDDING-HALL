@@ -439,7 +439,7 @@ function App() {
                 Experience celebrations surrounded by lush greenery and over <span className="nature-desc-highlight">500 bamboo trees</span> that naturally enrich the atmosphere.
               </p>
               <p className="nature-desc">
-                Our plantation ecosystem contributes approximately <span className="nature-desc-highlight">1 lakh litres of fresh oxygen</span> every day, offering your guests a refreshing and unforgettable wedding experience.
+                Our plantation ecosystem contributes approximately <span className="nature-desc-highlight">1 lakh litre oxygen</span> per day, offering your guests a refreshing and unforgettable wedding experience.
               </p>
             </div>
           </div>
@@ -467,8 +467,8 @@ function App() {
               </div>
               <div className="n-stat reveal reveal-up">
                 <div className="n-stat-icon"><O2Icon /></div>
-                <h4>1 Lakh L</h4>
-                <p className="n-stat-label">Oxygen / Day</p>
+                <h4>1 Lakh Litre</h4>
+                <p className="n-stat-label">Oxygen / Per Day</p>
                 <p className="n-stat-desc">Fresh oxygen for a healthier tomorrow</p>
               </div>
               <div className="n-stat reveal reveal-up">

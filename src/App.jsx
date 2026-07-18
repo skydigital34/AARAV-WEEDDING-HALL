@@ -211,7 +211,7 @@ const marqueeFeatures = [
   { icon: HeartHandshake, title: "MEMORABLE EXPERIENCES", desc: "Creating moments you'll cherish forever." },
   { icon: Leaf, title: "NATURE FRIENDLY", desc: "Lush green surroundings and eco-conscious venue operations." },
   { icon: PawPrint, title: "PET FRIENDLY", desc: "Welcoming environment for your beloved furry companions." },
-  { icon: Wind, title: "GREEN OXYGEN", desc: "We contribute 1 lakh oxygen liters per day." },
+  { icon: Wind, title: "GREEN OXYGEN", desc: "We contribute 1 lakh litre oxygen per day." },
   { icon: Globe, title: "ENVIRONMENT ARCHITECTURE", desc: "Sustainable architectural design harmonized with nature." },
   { icon: Armchair, title: "PREMIUM OUTDOOR LOUNGE", desc: "Luxurious open-air seating for all your functions." },
   { icon: CircleParking, title: "AMPLE PARKING", desc: "Ample parking space for 25 cars and 500+ bikes." }
@@ -649,7 +649,7 @@ function App() {
             </span>
             <h2 className="nature-title">
               <span className="nature-count">We Contribute</span>
-              <span className="nature-sub">1 Lakh Oxygen Liters / Day</span>
+              <span className="nature-sub">1 Lakh Litre Oxygen / Per Day</span>
             </h2>
             <div className="nature-title-separator">
               <span className="ns-line"></span>
@@ -668,7 +668,7 @@ function App() {
                 Experience celebrations surrounded by lush greenery and over <span className="nature-desc-highlight">500 bamboo trees</span> that naturally enrich the atmosphere.
               </p>
               <p className="nature-desc">
-                Our plantation ecosystem contributes approximately <span className="nature-desc-highlight">1 lakh litres of fresh oxygen</span> every day, offering your guests a refreshing and unforgettable wedding experience.
+                Our plantation ecosystem contributes approximately <span className="nature-desc-highlight">1 lakh litre oxygen</span> per day, offering your guests a refreshing and unforgettable wedding experience.
               </p>
             </div>
           </div>
@@ -696,8 +696,8 @@ function App() {
               </div>
               <div className="n-stat reveal reveal-up">
                 <div className="n-stat-icon"><O2Icon /></div>
-                <h4>1 Lakh L</h4>
-                <p className="n-stat-label">Oxygen / Day</p>
+                <h4>1 Lakh Litre</h4>
+                <p className="n-stat-label">Oxygen / Per Day</p>
                 <p className="n-stat-desc">Fresh oxygen for a healthier tomorrow</p>
               </div>
               <div className="n-stat reveal reveal-up">
@@ -1158,7 +1158,7 @@ function App() {
                 <span className="nature-badge-small">ECO VENUE PHILOSOPHY</span>
                 <h2>A Breath of Fresh Air for Your Guests</h2>
                 <p>
-                  Our plantation ecosystem contributes approximately 1 lakh litres of fresh oxygen every day. The lush bamboo gazebos and beautifully landscaped gardens offer the perfect backdrop for photos and a cooling breeze that naturally enriches the atmosphere.
+                  Our plantation ecosystem contributes approximately 1 lakh litre oxygen per day. The lush bamboo gazebos and beautifully landscaped gardens offer the perfect backdrop for photos and a cooling breeze that naturally enriches the atmosphere.
                 </p>
                 <div className="nature-stats-small">
                   <div className="stat-box">
@@ -1166,8 +1166,8 @@ function App() {
                     <p>Bamboo Trees</p>
                   </div>
                   <div className="stat-box">
-                    <h4>1 Lakh Litres</h4>
-                    <p>Oxygen / Day</p>
+                    <h4>1 Lakh Litre</h4>
+                    <p>Oxygen / Per Day</p>
                   </div>
                   <div className="stat-box">
                     <h4>100%</h4>
