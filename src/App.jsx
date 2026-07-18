@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { 
-  Calendar, ArrowRight, ArrowLeft, Gift, 
+  Calendar, ArrowRight, ArrowLeft, 
   PhoneCall, MessageCircle, 
   Armchair, ConciergeBell, Flower2, CalendarDays, HeartHandshake,
   PawPrint, Wind, CookingPot, CircleParking, Zap,
@@ -17,6 +17,9 @@ import outdoorBuffetImg from './assets/facilities/Outdoor Buffet Lounge.png';
 import outdoorLoungeImg from './assets/facilities/Outdoor Lounge.png';
 import parkingImg from './assets/facilities/Parking.png';
 import photographySpotsImg from './assets/facilities/Photography Spots.png';
+import generatorImg from './assets/facilities/Generator.png';
+import guestRoomsImg from './assets/facilities/guestrooms.png';
+import kitchenImg from './assets/facilities/kitchen.png';
 import heroBg1 from './assets/herobgset/bg1.png';
 import heroBg3 from './assets/herobgset/bg3.png';
 import heroBg4 from './assets/herobgset/bg4.png';
@@ -208,51 +211,51 @@ const marqueeFeatures = [
   { icon: HeartHandshake, title: "MEMORABLE EXPERIENCES", desc: "Creating moments you'll cherish forever." },
   { icon: Leaf, title: "NATURE FRIENDLY", desc: "Lush green surroundings and eco-conscious venue operations." },
   { icon: PawPrint, title: "PET FRIENDLY", desc: "Welcoming environment for your beloved furry companions." },
-  { icon: Wind, title: "GREEN OXYGEN", desc: "We contribute one lakh oxygen per day." },
+  { icon: Wind, title: "GREEN OXYGEN", desc: "We contribute 1 lakh oxygen liters per day." },
   { icon: Globe, title: "ENVIRONMENT ARCHITECTURE", desc: "Sustainable architectural design harmonized with nature." },
   { icon: Armchair, title: "PREMIUM OUTDOOR LOUNGE", desc: "Luxurious open-air seating for all your functions." },
   { icon: CircleParking, title: "AMPLE PARKING", desc: "Ample parking space for 25 cars and 500+ bikes." }
 ];
 
 const facilities = [
-  { icon: Wind, title: "Indoor AC Hall", desc: "500+ Seating", image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=600&auto=format&fit=crop",
+  { icon: Wind, title: "Indoor AC Hall", desc: "500+ Seating", image: indoorAcImg,
     popupImage: indoorAcImg,
     popupDesc: "Our grand Indoor AC Hall is a masterpiece of elegance, featuring state-of-the-art climate control and luxurious interiors. Perfect for weddings, receptions, and large-scale celebrations with comfortable seating for over 500 guests.",
     highlights: ["Centralized AC", "500+ Seating Capacity", "Premium Sound System", "Stage & Lighting"] },
-  { icon: Tent, title: "Outdoor Lounge", desc: "Mini Open Hall", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=600&auto=format&fit=crop",
+  { icon: Tent, title: "Outdoor Lounge", desc: "Mini Open Hall", image: outdoorLoungeImg,
     popupImage: outdoorLoungeImg,
     popupDesc: "An enchanting open-air lounge surrounded by lush greenery, perfect for intimate pre-wedding ceremonies, cocktail parties, and evening celebrations under the stars.",
     highlights: ["Open Air Setup", "Garden View", "Ambient Lighting", "Flexible Layout"] },
-  { icon: Coffee, title: "Indoor Dining", desc: "Leaf Serve 200pack", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop",
+  { icon: Coffee, title: "Indoor Dining", desc: "Leaf Serve 200pack", image: indoorDiningImg,
     popupImage: indoorDiningImg,
     popupDesc: "A sophisticated indoor dining area designed for traditional leaf-serve meals. Accommodates up to 200 guests with comfortable seating and an elegant ambiance that complements every feast.",
     highlights: ["200 Pax Capacity", "Traditional Leaf Serve", "AC Dining", "Hygienic Setup"] },
-  { icon: Sun, title: "Outdoor Buffet Lounge", desc: "400 pax", image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600&auto=format&fit=crop",
+  { icon: Sun, title: "Outdoor Buffet Lounge", desc: "400 pax", image: outdoorBuffetImg,
     popupImage: outdoorBuffetImg,
     popupDesc: "A spacious outdoor buffet lounge capable of serving 400 guests at once. Beautifully designed with dedicated buffet counters, live cooking stations, and ample space for a grand dining experience.",
     highlights: ["400 Pax Capacity", "Live Cooking Stations", "Buffet Counters", "Scenic Ambiance"] },
-  { icon: CircleParking, title: "Parking", desc: "350 Cars + 500 Bikes", image: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=600&auto=format&fit=crop",
+  { icon: CircleParking, title: "Parking", desc: "350 Cars + 500 Bikes", image: parkingImg,
     popupImage: parkingImg,
     popupDesc: "Expansive parking facilities ensuring a hassle-free experience for all your guests. Our well-organized parking area can accommodate 350 cars and 500 bikes with dedicated security.",
     highlights: ["350 Car Slots", "500 Bike Slots", "24/7 Security", "Well-Lit Area"] },
-  { icon: Zap, title: "Power Backup", desc: "24x7 Generator", image: "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=600&auto=format&fit=crop",
-    popupImage: "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1200&auto=format&fit=crop",
+  { icon: Zap, title: "Power Backup", desc: "24x7 Generator", image: generatorImg,
+    popupImage: generatorImg,
     popupDesc: "Never worry about power interruptions during your event. Our robust 24x7 generator backup ensures uninterrupted electricity supply for lighting, sound systems, and all event equipment.",
     highlights: ["24x7 Availability", "Full Load Backup", "Auto Switchover", "Zero Downtime"] },
   { icon: Sparkles, title: "Mini Lounge", desc: "70 members", image: miniLoungeImg,
     popupImage: miniLoungeImg,
     popupDesc: "An intimate and stylish mini lounge perfect for smaller gatherings, family functions, and private celebrations. Accommodates up to 70 members with a cozy and premium atmosphere.",
     highlights: ["70 Pax Capacity", "Cozy Interiors", "Private Setting", "Premium Decor"] },
-  { icon: Key, title: "Guest Rooms", desc: "4 Individual rooms + 2 dormitory rooms + Total Occupancy 28 no's", image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600&auto=format&fit=crop",
-    popupImage: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200&auto=format&fit=crop",
+  { icon: Key, title: "Guest Rooms", desc: "4 Individual rooms + 2 dormitory rooms + Total Occupancy 28 no's", image: guestRoomsImg,
+    popupImage: guestRoomsImg,
     popupDesc: "Comfortable and well-furnished guest rooms for your family and VIP guests. Featuring 4 individual rooms and 2 dormitory rooms with a total occupancy of 28 persons, complete with modern amenities.",
     highlights: ["4 Individual Rooms", "2 Dormitory Rooms", "28 Total Occupancy", "Modern Amenities"] },
-  { icon: Camera, title: "Photography Spots", desc: "Lush Green Backdrop", image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
+  { icon: Camera, title: "Photography Spots", desc: "Lush Green Backdrop", image: photographySpotsImg,
     popupImage: photographySpotsImg,
     popupDesc: "Capture your most precious moments at our stunning photography spots. Featuring lush green backdrops, scenic garden pathways, and beautifully curated corners designed for picture-perfect memories.",
     highlights: ["Lush Green Backdrop", "Scenic Garden Paths", "Golden Hour Spots", "Instagrammable Corners"] },
-  { icon: CookingPot, title: "Kitchen", desc: "Catering equipements", image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop",
-    popupImage: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop",
+  { icon: CookingPot, title: "Kitchen", desc: "Catering equipements", image: kitchenImg,
+    popupImage: kitchenImg,
     popupDesc: "A fully equipped commercial kitchen with all the catering equipment your caterers need. Spacious prep areas, industrial burners, and modern facilities to prepare a grand feast for any occasion.",
     highlights: ["Industrial Equipment", "Spacious Prep Area", "Gas & Electric Setup", "Hygienic Standards"] }
 ];
@@ -482,9 +485,6 @@ function App() {
               <a href="#occasions" className="btn-primary">
                 EXPLORE EVENTS <ArrowRight size={18} />
               </a>
-              <button className="btn-secondary" onClick={() => setIsModalOpen(true)}>
-                VIEW PACKAGES <Gift size={18} />
-              </button>
             </div>
           </div>
 
@@ -649,7 +649,7 @@ function App() {
             </span>
             <h2 className="nature-title">
               <span className="nature-count">We Contribute</span>
-              <span className="nature-sub">1 Lakh Oxygen / Day</span>
+              <span className="nature-sub">1 Lakh Oxygen Liters / Day</span>
             </h2>
             <div className="nature-title-separator">
               <span className="ns-line"></span>

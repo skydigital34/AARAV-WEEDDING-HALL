@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Calendar, Menu, ArrowRight, Gift, Users, Building, 
+  Calendar, Menu, ArrowRight, Users, Building, 
   Award, Briefcase, PhoneCall, MessageCircle, Play, 
   Armchair, ConciergeBell, Flower2, CalendarDays, HeartHandshake,
   TreePine, PawPrint, Home, Wind, UtensilsCrossed, CookingPot, Sun, CircleParking, BedDouble, Zap,
@@ -267,9 +267,6 @@ function App() {
             <div className="action-buttons">
               <button className="btn-primary">
                 EXPLORE VENUES <ArrowRight size={18} />
-              </button>
-              <button className="btn-secondary">
-                VIEW PACKAGES <Gift size={18} />
               </button>
             </div>
 
