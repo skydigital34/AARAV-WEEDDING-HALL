@@ -10,32 +10,32 @@ import {
   Phone, MailOpen, Navigation,
   Images, X, ChevronLeft, ChevronRight, Home
 } from 'lucide-react';
-import indoorAcImg from './assets/facilities/Indoor AC Hall.png';
-import indoorDiningImg from './assets/facilities/Indoor Dining.png';
-import miniLoungeImg from './assets/facilities/Mini Lounge.png';
-import outdoorBuffetImg from './assets/facilities/Outdoor Buffet Lounge.png';
-import outdoorLoungeImg from './assets/facilities/Outdoor Lounge.png';
-import parkingImg from './assets/facilities/Parking.png';
-import photographySpotsImg from './assets/facilities/Photography Spots.png';
-import generatorImg from './assets/facilities/Generator.png';
-import guestRoomsImg from './assets/facilities/guestrooms.png';
-import kitchenImg from './assets/facilities/kitchen.png';
-import heroBg1 from './assets/herobgset/bg1.png';
-import heroBg3 from './assets/herobgset/bg3.png';
-import heroBg4 from './assets/herobgset/bg4.png';
-import heroBg5 from './assets/herobgset/bg5.png';
-import heroBg6 from './assets/herobgset/bg6.png';
-import heroBg7 from './assets/herobgset/bg7.png';
-import heroBg8 from './assets/herobgset/bg8.png';
-import heroBg10 from './assets/herobgset/bg10.png';
-import heroBg11 from './assets/herobgset/bg11.png';
-import heroBg12 from './assets/herobgset/bg12.png';
-import heroImg from './assets/herobgset/image.png';
-import heroImgCopy from './assets/herobgset/image copy.png';
-import heroImgCopy2 from './assets/herobgset/image copy 2.png';
-import heroImgCopy3 from './assets/herobgset/image copy 3.png';
-import heroImgCopy4 from './assets/herobgset/image copy 4.png';
-import heroImgCopy5 from './assets/herobgset/image copy 5.png';
+import indoorAcImg from './assets/facilities/Indoor AC Hall.webp';
+import indoorDiningImg from './assets/facilities/Indoor Dining.webp';
+import miniLoungeImg from './assets/facilities/Mini Lounge.webp';
+import outdoorBuffetImg from './assets/facilities/Outdoor Buffet Lounge.webp';
+import outdoorLoungeImg from './assets/facilities/Outdoor Lounge.webp';
+import parkingImg from './assets/facilities/Parking.webp';
+import photographySpotsImg from './assets/facilities/Photography Spots.webp';
+import generatorImg from './assets/facilities/Generator.webp';
+import guestRoomsImg from './assets/facilities/guestrooms.webp';
+import kitchenImg from './assets/facilities/kitchen.webp';
+import heroBg1 from './assets/herobgset/bg1.webp';
+import heroBg3 from './assets/herobgset/bg3.webp';
+import heroBg4 from './assets/herobgset/bg4.webp';
+import heroBg5 from './assets/herobgset/bg5.webp';
+import heroBg6 from './assets/herobgset/bg6.webp';
+import heroBg7 from './assets/herobgset/bg7.webp';
+import heroBg8 from './assets/herobgset/bg8.webp';
+import heroBg10 from './assets/herobgset/bg10.webp';
+import heroBg11 from './assets/herobgset/bg11.webp';
+import heroBg12 from './assets/herobgset/bg12.webp';
+import heroImg from './assets/herobgset/image.webp';
+import heroImgCopy from './assets/herobgset/image copy.webp';
+import heroImgCopy2 from './assets/herobgset/image copy 2.webp';
+import heroImgCopy3 from './assets/herobgset/image copy 3.webp';
+import heroImgCopy4 from './assets/herobgset/image copy 4.webp';
+import heroImgCopy5 from './assets/herobgset/image copy 5.webp';
 
 const heroImages = [
   heroBg1,
@@ -56,16 +56,16 @@ const heroImages = [
   heroImgCopy5,
 ];
 
-import logoImg from './assets/logo_circle.png';
-import bambooGazebo from './assets/bamboo_gazebo.png';
-import weddingImg from './assets/occasions/wedding.png';
-import engagementImg from './assets/occasions/engagement.png';
-import birthdayImg from './assets/occasions/birthday.png';
-import haldiImg from './assets/occasions/haldi.png';
-import mehendiImg from './assets/occasions/mehendi.png';
-import pubertyImg from './assets/occasions/puberty.png';
-import corporateImg from './assets/occasions/corporate.png';
-import gettogetherImg from './assets/occasions/gettogether.png';
+import logoImg from './assets/logo_circle.webp';
+import bambooGazebo from './assets/bamboo_gazebo.webp';
+import weddingImg from './assets/occasions/wedding.webp';
+import engagementImg from './assets/occasions/engagement.webp';
+import birthdayImg from './assets/occasions/birthday.webp';
+import haldiImg from './assets/occasions/haldi.webp';
+import mehendiImg from './assets/occasions/mehendi.webp';
+import pubertyImg from './assets/occasions/puberty.webp';
+import corporateImg from './assets/occasions/corporate.webp';
+import gettogetherImg from './assets/occasions/gettogether.webp';
 import './index.css';
 
 
@@ -322,6 +322,22 @@ function App() {
   const [eventPopup, setEventPopup] = useState(null);
   const [activeSection, setActiveSection] = useState('home');
   const [currentPage, setCurrentPage] = useState('landing');
+  const [isPageLoading, setIsPageLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsPageLoading(false);
+      }, 1000);
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
 
   const filteredGalleryItems = galleryItems.filter(item => 
     galleryFilter === 'all' || item.category === galleryFilter
@@ -419,6 +435,26 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Premium Preloader */}
+      <div className={`preloader-overlay ${!isPageLoading ? 'fade-out' : ''}`}>
+        <div className="preloader-content">
+          <div className="preloader-logo-ring">
+            <div className="preloader-ring"></div>
+            <div className="preloader-ring-inner"></div>
+            <div className="preloader-logo-circle">
+              <span className="preloader-logo-text">A</span>
+            </div>
+          </div>
+          <div className="preloader-brand">
+            <h2 className="preloader-title">AARAV WEDDING HALL</h2>
+            <p className="preloader-subtitle">Celebrate Elegance</p>
+            <div className="preloader-progress-track">
+              <div className="preloader-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {currentPage === 'landing' ? (
         <>
           {/* Header */}
