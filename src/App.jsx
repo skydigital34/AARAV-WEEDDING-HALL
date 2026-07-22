@@ -71,11 +71,37 @@ import './index.css';
 
 
 
-const galleryItems = heroImages.map((img, idx) => ({
-  src: img,
-  category: 'hall',
-  title: `Hero Image ${idx + 1}`
-}));
+const galleryItems = [
+  // Wedding Hall
+  { src: heroBg1, category: 'hall', title: 'Grand Hall Entrance & Seating' },
+  { src: heroBg5, category: 'hall', title: 'Central Hall Climate-Controlled View' },
+  { src: heroBg12, category: 'hall', title: 'Premium Reception Stage View' },
+  { src: indoorAcImg, category: 'hall', title: 'Lush AC Banquet Hall Layout' },
+  { src: indoorDiningImg, category: 'hall', title: 'Spacious Dining Hall Area' },
+  
+  // Decorations
+  { src: heroBg3, category: 'decor', title: 'Traditional Flower Decoration Setup' },
+  { src: heroBg4, category: 'decor', title: 'Exquisite Main Stage Canopy' },
+  { src: heroBg8, category: 'decor', title: 'Premium VIP Lounge Setup' },
+  { src: heroBg10, category: 'decor', title: 'Floral Arches & Seating Decor' },
+  { src: heroBg11, category: 'decor', title: 'Royal Stage Backdrop Setup' },
+  
+  // Nature & Gardens
+  { src: heroBg6, category: 'nature', title: 'Lush Green Outdoor Lawns' },
+  { src: heroBg7, category: 'nature', title: 'Scenic Stone Pathways & Flora' },
+  { src: bambooGazebo, category: 'nature', title: 'Eco-Friendly Bamboo Gazebo' },
+  { src: photographySpotsImg, category: 'nature', title: 'Scenic Photography Spots & Bridges' },
+  
+  // Events & Celebrations
+  { src: weddingImg, category: 'occasions', title: 'Grand Wedding Celebrations' },
+  { src: engagementImg, category: 'occasions', title: 'Elegant Engagement Ceremonies' },
+  { src: birthdayImg, category: 'occasions', title: 'Vibrant Birthday Parties' },
+  { src: haldiImg, category: 'occasions', title: 'Colorful Haldi Rituals' },
+  { src: mehendiImg, category: 'occasions', title: 'Traditional Mehendi Evenings' },
+  { src: pubertyImg, category: 'occasions', title: 'Traditional Puberty Functions' },
+  { src: corporateImg, category: 'occasions', title: 'Professional Corporate Events' },
+  { src: gettogetherImg, category: 'occasions', title: 'Warm Family Get-togethers' }
+];
 
 const BambooIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -179,7 +205,7 @@ const GatheringIcon = () => (
 const occasions = [
   { title: "Wedding", shortDesc: "Celebrate your big day in a magical setting.", image: weddingImg, Icon: WeddingIcon,
     popupDesc: "Your dream wedding deserves a dream venue. Our grand hall transforms into a breathtaking celebration space with elegant decor, premium lighting, and world-class amenities. From traditional ceremonies to modern receptions, every detail is curated to perfection.",
-    features: ["Grand Stage Setup", "500+ Guest Capacity", "Bridal Suite Available", "Custom Decor Themes", "Premium Sound & Lighting", "Valet Parking"] },
+    features: ["Grand Stage Setup", "400+ Guest Capacity", "Bridal Suite Available", "Custom Decor Themes", "Premium Sound & Lighting", "Valet Parking"] },
   { title: "Engagement", shortDesc: "Mark the beginning of forever with elegance.", image: engagementImg, Icon: EngagementIcon,
     popupDesc: "Begin your journey of togetherness in a venue that radiates love and elegance. Our beautifully decorated spaces set the perfect tone for your engagement ceremony, with intimate seating, floral arrangements, and stunning backdrops for timeless photos.",
     features: ["Elegant Stage Decor", "Ring Ceremony Setup", "Photo Backdrop Walls", "Intimate Seating", "Floral Arrangements", "Custom Lighting"] },
@@ -218,13 +244,13 @@ const marqueeFeatures = [
 ];
 
 const facilities = [
-  { icon: Wind, title: "Indoor AC Hall", desc: "500+ Seating", image: indoorAcImg,
+  { icon: Wind, title: "Indoor AC Hall", desc: "400+ Seating", image: indoorAcImg,
     popupImage: indoorAcImg,
-    popupDesc: "Our grand Indoor AC Hall is a masterpiece of elegance, featuring state-of-the-art climate control and luxurious interiors. Perfect for weddings, receptions, and large-scale celebrations with comfortable seating for over 500 guests.",
-    highlights: ["Centralized AC", "500+ Seating Capacity", "Premium Sound System", "Stage & Lighting"] },
+    popupDesc: "Our grand Indoor AC Hall is a masterpiece of elegance, featuring state-of-the-art climate control and luxurious interiors. Perfect for weddings, receptions, and large-scale celebrations with comfortable seating for over 400 guests.",
+    highlights: ["Centralized AC", "400+ Seating Capacity", "Premium Sound System", "Stage & Lighting"] },
   { icon: Tent, title: "Outdoor Lounge", desc: "Mini Open Hall", image: outdoorLoungeImg,
     popupImage: outdoorLoungeImg,
-    popupDesc: "An enchanting open-air lounge surrounded by lush greenery, perfect for intimate pre-wedding ceremonies, cocktail parties, and evening celebrations under the stars.",
+    popupDesc: "An enchanting open-air lounge surrounded by lush greenery, perfect for intimate pre-wedding ceremonies and evening celebrations under the stars.",
     highlights: ["Open Air Setup", "Garden View", "Ambient Lighting", "Flexible Layout"] },
   { icon: Coffee, title: "Indoor Dining", desc: "Leaf Serve 200pack", image: indoorDiningImg,
     popupImage: indoorDiningImg,
@@ -492,14 +518,14 @@ function App() {
           <div className="hero-right reveal reveal-right">
             <div className="vertical-sidebar">
 
-              <div className="sidebar-item">
+              <a href="tel:+919655501679" className="sidebar-item">
                 <PhoneCall size={18} />
                 <span>CALL NOW</span>
-              </div>
-              <div className="sidebar-item">
+              </a>
+              <a href="https://wa.me/919655501679" target="_blank" rel="noopener noreferrer" className="sidebar-item">
                 <MessageCircle size={18} />
                 <span>WHATSAPP</span>
-              </div>
+              </a>
             </div>
 
           </div>
@@ -890,8 +916,8 @@ function App() {
               </div>
 
               <div className="form-group">
-                <select required className="form-select">
-                  <option value="" disabled selected hidden>Event Type</option>
+                <select required className="form-select" defaultValue="">
+                  <option value="" disabled hidden>Event Type</option>
                   <option value="wedding">Wedding</option>
                   <option value="engagement">Engagement</option>
                   <option value="birthday">Birthday</option>
@@ -1130,7 +1156,7 @@ function App() {
                     </div>
                     <div className="feature-text-wrapper">
                       <h3>Luxurious Indoor AC Hall</h3>
-                      <p>State-of-the-art centralized climate control with seating for 500+ guests.</p>
+                      <p>State-of-the-art centralized climate control with seating for 400+ guests.</p>
                     </div>
                   </div>
 
@@ -1288,6 +1314,102 @@ function App() {
               </div>
             </div>
           </footer>
+        </div>
+      )}
+
+      {/* Floating Gallery Button */}
+      <button 
+        className="gallery-floating-btn" 
+        onClick={() => { setIsGalleryOpen(true); setGalleryFilter('all'); }}
+        aria-label="Open Gallery"
+      >
+        <Images size={24} />
+        <span className="tooltip-text">View Gallery</span>
+      </button>
+
+      {/* Gallery Modal */}
+      {isGalleryOpen && (
+        <div className="gallery-modal-overlay" onClick={() => setIsGalleryOpen(false)}>
+          <div className="gallery-modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Aarav Gallery">
+            <button className="gallery-modal-close" onClick={() => setIsGalleryOpen(false)} aria-label="Close gallery">
+              <X size={20} />
+            </button>
+            
+            <div className="gallery-modal-header">
+              <h3 className="gallery-title">Aarav Gallery</h3>
+              <p className="gallery-subtitle">A visual journey through our premium spaces, gardens and occasions</p>
+            </div>
+            
+            {/* Filter Tabs */}
+            <div className="gallery-filters">
+              {[
+                { id: 'all', label: 'All Photos' },
+                { id: 'hall', label: 'Wedding Hall' },
+                { id: 'decor', label: 'Decorations' },
+                { id: 'nature', label: 'Nature & Gardens' },
+                { id: 'occasions', label: 'Events & Celebrations' }
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  className={`gallery-filter-btn ${galleryFilter === tab.id ? 'active' : ''}`}
+                  onClick={() => { setGalleryFilter(tab.id); setLightboxIndex(null); }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            
+            {/* Photo Grid */}
+            <div className="gallery-grid-container">
+              {filteredGalleryItems.length > 0 ? (
+                <div className="gallery-photo-grid">
+                  {filteredGalleryItems.map((item, idx) => (
+                    <div 
+                      key={idx} 
+                      className="gallery-photo-item"
+                      onClick={() => setLightboxIndex(idx)}
+                    >
+                      <img src={item.src} alt={item.title} loading="lazy" />
+                      <div className="gallery-photo-overlay">
+                        <span className="gallery-photo-category">{item.category.toUpperCase()}</span>
+                        <span className="gallery-photo-title">{item.title}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="gallery-empty">No photos found in this category.</div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal */}
+      {isGalleryOpen && lightboxIndex !== null && (
+        <div className="lightbox-overlay" onClick={() => setLightboxIndex(null)}>
+          <button className="lightbox-close" onClick={() => setLightboxIndex(null)} aria-label="Close lightbox">
+            <X size={24} />
+          </button>
+          
+          <button className="lightbox-nav btn-prev" onClick={handlePrevImage} aria-label="Previous image">
+            <ChevronLeft size={36} />
+          </button>
+          
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={filteredGalleryItems[lightboxIndex].src} 
+              alt={filteredGalleryItems[lightboxIndex].title} 
+            />
+            <div className="lightbox-caption">
+              <h4>{filteredGalleryItems[lightboxIndex].title}</h4>
+              <p>{filteredGalleryItems[lightboxIndex].category.toUpperCase()}</p>
+            </div>
+          </div>
+          
+          <button className="lightbox-nav btn-next" onClick={handleNextImage} aria-label="Next image">
+            <ChevronRight size={36} />
+          </button>
         </div>
       )}
     </div>
