@@ -66,10 +66,41 @@ import mehendiImg from './assets/occasions/mehendi.webp';
 import pubertyImg from './assets/occasions/puberty.webp';
 import corporateImg from './assets/occasions/corporate.webp';
 import gettogetherImg from './assets/occasions/gettogether.webp';
+
+// Gallery Folder Imports
+import galOutdoor1 from './assets/gallery/Aarav_outdoor_wedding_hall_in_coimbatore.jpeg';
+import galOutdoor2 from './assets/gallery/Aarav_outdoor_wedding_hall_in_coimbatore_.jpeg';
+import galHallGallery from './assets/gallery/Aarav_wedding_Hall_Gallery.jpeg';
+import galHallInCbe from './assets/gallery/Aarav_wedding_hall_in_coimbatore.jpeg';
+import galLounge from './assets/gallery/Aarav_wedding_lounge_in_coimbatore.jpeg';
+import galBanquetHall from './assets/gallery/Banquet_wedding_hall_in_coimbatore.jpeg';
+import galOutdoorHall from './assets/gallery/Outdoor_Hall_in_coimbatore_.jpeg';
+import galBanquetHall1 from './assets/gallery/aarav_banquet_hall_in_coimbatore.jpeg';
+import galBanquetHall2 from './assets/gallery/aarav_banquet_wedding_hall_in_coimbatore.jpeg';
+import galAaravHall from './assets/gallery/aarav_hall.jpeg';
+import galNatureHall from './assets/gallery/aarav_nature_wedding_hall_coimbatore_.jpeg';
+import galDecor from './assets/gallery/aarav_wedding_hall_decoration_in_coimbatore.JPG';
+import galNightView from './assets/gallery/aarav_wedding_hall_in_coimbatore_night.jpeg';
+import galIndoorJpg from './assets/gallery/aarav_wedding_hall_indoor_in_coimbatore.JPG';
+import galKovilJpg from './assets/gallery/aarav_wedding_hall_kovil_in_coimbatore.JPG';
+import galOutdoorJpg from './assets/gallery/aarav_wedding_hall_outdoor_in_coimbatore.JPG';
+import galOuterJpg from './assets/gallery/aarav_wedding_hall_outer_in_coimbatore.JPG';
+import galOutsideJpg from './assets/gallery/aarav_wedding_hall_outside_in_coimbatore.JPG';
+import galOfficeJpg from './assets/gallery/aarav_wedding_hall_outside_in_coimbatore_office.JPG';
+import galWeddingInCbe from './assets/gallery/aarav_wedding_in_coimbatore.jpeg';
+import galDestBanquet from './assets/gallery/destination_Banquet_Hall_coimbatore.jpeg';
+import galDestWedding from './assets/gallery/destination_wedding_hall_coimbatore.jpeg';
+import galIndoorBanquet from './assets/gallery/indoor_banquet_hall_in_coimbatore.jpeg';
+import galIndoorDining from './assets/gallery/indoor_dining_in_coimbatore.jpeg';
+import galIndoorBuffet from './assets/gallery/indoor_dining_in_coimbatore_buffet.jpeg';
+import galIndoorWedding from './assets/gallery/indoor_wedding_hall_in_coimbatore.jpeg';
+import galMarriageHall1 from './assets/gallery/marraige_halls_in_coimbatore.jpeg';
+import galMarriageHall2 from './assets/gallery/marriage_halls_in_coimbatore.jpeg';
+import galNatureFriendly from './assets/gallery/nature_freindly_wedding_hall_in_coimbatore.jpeg';
+import galOutdoorDining from './assets/gallery/outdoor_dining_in_coimbatore.jpeg';
+import galOutdoorDiningLounge from './assets/gallery/outdoor_dining_lounge_in_coimbatore.jpeg';
+import galOutdoorEvening from './assets/gallery/outdoor_hall_in_coimbatore.jpeg';
 import './index.css';
-
-
-
 
 const galleryItems = [
   // Wedding Hall
@@ -78,6 +109,21 @@ const galleryItems = [
   { src: heroBg12, category: 'hall', title: 'Premium Reception Stage View' },
   { src: indoorAcImg, category: 'hall', title: 'Lush AC Banquet Hall Layout' },
   { src: indoorDiningImg, category: 'hall', title: 'Spacious Dining Hall Area' },
+  { src: galHallGallery, category: 'hall', title: 'Aarav Wedding Hall' },
+  { src: galHallInCbe, category: 'hall', title: 'Grand Hall Entrance' },
+  { src: galBanquetHall, category: 'hall', title: 'Banquet Hall Setup' },
+  { src: galBanquetHall1, category: 'hall', title: 'Aarav Banquet Hall View' },
+  { src: galBanquetHall2, category: 'hall', title: 'Banquet & Reception Hall' },
+  { src: galAaravHall, category: 'hall', title: 'Main AC Hall View' },
+  { src: galIndoorJpg, category: 'hall', title: 'Indoor Hall Seating & Stage' },
+  { src: galDestBanquet, category: 'hall', title: 'Destination Banquet Hall' },
+  { src: galDestWedding, category: 'hall', title: 'Destination Wedding Hall' },
+  { src: galIndoorBanquet, category: 'hall', title: 'Indoor Banquet Facility' },
+  { src: galIndoorWedding, category: 'hall', title: 'Indoor Hall Ambiance' },
+  { src: galMarriageHall1, category: 'hall', title: 'Marriage Hall Architecture' },
+  { src: galMarriageHall2, category: 'hall', title: 'Marriage Hall Overview' },
+  { src: galIndoorDining, category: 'hall', title: 'Indoor Dining Space' },
+  { src: galIndoorBuffet, category: 'hall', title: 'Indoor Buffet & Dining Setup' },
   
   // Decorations
   { src: heroBg3, category: 'decor', title: 'Traditional Flower Decoration Setup' },
@@ -85,15 +131,32 @@ const galleryItems = [
   { src: heroBg8, category: 'decor', title: 'Premium VIP Lounge Setup' },
   { src: heroBg10, category: 'decor', title: 'Floral Arches & Seating Decor' },
   { src: heroBg11, category: 'decor', title: 'Royal Stage Backdrop Setup' },
+  { src: galDecor, category: 'decor', title: 'Grand Stage & Floral Decoration' },
+  { src: galNightView, category: 'decor', title: 'Illuminated Hall Night View' },
+  { src: galLounge, category: 'decor', title: 'Premium Wedding Lounge' },
+  { src: galOfficeJpg, category: 'decor', title: 'Reception & Office Lounge' },
   
   // Nature & Gardens
   { src: heroBg6, category: 'nature', title: 'Lush Green Outdoor Lawns' },
   { src: heroBg7, category: 'nature', title: 'Scenic Stone Pathways & Flora' },
   { src: bambooGazebo, category: 'nature', title: 'Eco-Friendly Bamboo Gazebo' },
   { src: photographySpotsImg, category: 'nature', title: 'Scenic Photography Spots & Bridges' },
+  { src: galOutdoor1, category: 'nature', title: 'Outdoor Wedding Garden' },
+  { src: galOutdoor2, category: 'nature', title: 'Lush Lawn & Outdoor Space' },
+  { src: galOutdoorHall, category: 'nature', title: 'Open-Air Lawn Pavilion' },
+  { src: galNatureHall, category: 'nature', title: 'Nature-Immersed Wedding Hall' },
+  { src: galKovilJpg, category: 'nature', title: 'Traditional Kovil & Shrine Area' },
+  { src: galOutdoorJpg, category: 'nature', title: 'Outdoor Event Grounds' },
+  { src: galOuterJpg, category: 'nature', title: 'Outer Venue Surroundings' },
+  { src: galOutsideJpg, category: 'nature', title: 'Lawn Pathways & Greenery' },
+  { src: galNatureFriendly, category: 'nature', title: 'Eco-Friendly Nature Setting' },
+  { src: galOutdoorDining, category: 'nature', title: 'Outdoor Dining Under Greens' },
+  { src: galOutdoorDiningLounge, category: 'nature', title: 'Garden Dining Lounge' },
+  { src: galOutdoorEvening, category: 'nature', title: 'Evening Lawn Ambiance' },
   
   // Events & Celebrations
   { src: weddingImg, category: 'occasions', title: 'Grand Wedding Celebrations' },
+  { src: galWeddingInCbe, category: 'occasions', title: 'Traditional Wedding Ceremony' },
   { src: engagementImg, category: 'occasions', title: 'Elegant Engagement Ceremonies' },
   { src: birthdayImg, category: 'occasions', title: 'Vibrant Birthday Parties' },
   { src: haldiImg, category: 'occasions', title: 'Colorful Haldi Rituals' },
