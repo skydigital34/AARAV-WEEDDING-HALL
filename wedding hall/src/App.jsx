@@ -661,7 +661,7 @@ function App() {
                 </div>
                 <div className="c-text">
                   <span className="c-label">CALL US</span>
-                  <a href="tel:+919655501679" className="c-val">+91 96555 01679</a>
+                  <a href="tel:+919688433666" className="c-val">+91 96884 33666</a>
                 </div>
               </div>
 
@@ -761,7 +761,7 @@ function App() {
                 <a href="#" className="social-link" aria-label="YouTube">
                   <YoutubeIcon />
                 </a>
-                <a href="https://wa.me/919655501679" className="social-link" aria-label="WhatsApp">
+                <a href="https://wa.me/919688433666" className="social-link" aria-label="WhatsApp">
                   <MessageCircle size={18} />
                 </a>
               </div>
@@ -801,7 +801,7 @@ function App() {
               <ul className="footer-contact-info">
                 <li>
                   <PhoneCall size={16} className="fc-icon" />
-                  <a href="tel:+919655501679">+91 96555 01679</a>
+                  <a href="tel:+919688433666">+91 96884 33666</a>
                 </li>
                 <li>
                   <Mail size={16} className="fc-icon" />

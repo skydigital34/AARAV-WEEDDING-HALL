@@ -617,11 +617,11 @@ function App() {
           <div className="hero-right reveal reveal-right">
             <div className="vertical-sidebar">
 
-              <a href="tel:+919655501679" className="sidebar-item">
+              <a href="tel:+919688433666" className="sidebar-item">
                 <PhoneCall size={18} />
                 <span>CALL NOW</span>
               </a>
-              <a href="https://wa.me/919655501679" target="_blank" rel="noopener noreferrer" className="sidebar-item">
+              <a href="https://wa.me/919688433666" target="_blank" rel="noopener noreferrer" className="sidebar-item">
                 <MessageCircle size={18} />
                 <span>WHATSAPP</span>
               </a>
@@ -737,7 +737,7 @@ function App() {
                   ))}
                 </div>
                 <a
-                  href={`https://wa.me/919655501679?text=${whatsappMsg}`}
+                  href={`https://wa.me/919688433666?text=${whatsappMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="facility-popup-whatsapp-btn"
@@ -916,7 +916,7 @@ function App() {
                     ))}
                   </div>
                   <a
-                    href={`https://wa.me/919655501679?text=${whatsappMsg}`}
+                    href={`https://wa.me/919688433666?text=${whatsappMsg}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="event-popup-book-btn"
@@ -968,7 +968,7 @@ function App() {
                 </div>
                 <div className="c-text">
                   <span className="c-label">CALL US</span>
-                  <a href="tel:+919655501679" className="c-val">+91 96555 01679</a>
+                  <a href="tel:+919688433666" className="c-val">+91 96884 33666</a>
                 </div>
               </div>
 
@@ -1068,7 +1068,7 @@ function App() {
                 <a href="#" className="social-link" aria-label="YouTube">
                   <YoutubeIcon />
                 </a>
-                <a href="https://wa.me/919655501679" className="social-link" aria-label="WhatsApp">
+                <a href="https://wa.me/919688433666" className="social-link" aria-label="WhatsApp">
                   <MessageCircle size={18} />
                 </a>
               </div>
@@ -1110,7 +1110,7 @@ function App() {
                   <div className="contact-icon-circle">
                     <Phone size={15} />
                   </div>
-                  <a href="tel:+919655501679">+91 96555 01679</a>
+                  <a href="tel:+919688433666">+91 96884 33666</a>
                 </li>
                 <li>
                   <div className="contact-icon-circle">
@@ -1377,7 +1377,7 @@ function App() {
                       <div className="contact-icon-circle">
                         <Phone size={14} />
                       </div>
-                      <a href="tel:+919655501679">+91 96555 01679</a>
+                      <a href="tel:+919688433666">+91 96884 33666</a>
                     </li>
                     <li>
                       <div className="contact-icon-circle">
